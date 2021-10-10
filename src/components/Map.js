@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactMapGl, { Marker, Popup } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useState, useRef } from "react";
 
 import { FaMapMarkerAlt } from "react-icons/fa";
 
-const Map = ({ flats }) => {
+const PARIS = {
+  lat: 48.8566,
+  lng: 2.3522,
+};
+
+const Map = ({ flats, selectedFlat, setSelectedFlat }) => {
   console.log(flats);
   const mapRef = useRef(null);
   const MAPBOX_TOKEN = "pk.eyJ1IjoiYXNoaWdueWVvIiwiYSI6ImNrdWxlOXUyMzAzcHUycHBpNjYxd2JraDYifQ.9NfPtyCqXIKBMUCZm0Zjhg";
-  const PARIS = {
-    lat: 48.8566,
-    lng: 2.3522,
-  };
+
   const [viewport, setViewport] = useState({
     width: "100%",
     height: "100vh",
@@ -20,19 +22,26 @@ const Map = ({ flats }) => {
     longitude: PARIS.lng,
     zoom: 11,
   });
-  const [selectedFlat, setSelectedFlat] = useState(null);
 
-  const handleSelectMarker = (marker) => {
-    setSelectedFlat(marker);
-    setViewport((prev) => {
-      return {
-        ...prev,
-        latitude: marker.lat,
-        longitude: marker.lng,
-        zoom: 13,
-      };
-    });
-  };
+  useEffect(() => {
+    selectedFlat
+      ? setViewport((prev) => {
+          return {
+            ...prev,
+            latitude: selectedFlat.lat,
+            longitude: selectedFlat.lng,
+            zoom: 13,
+          };
+        })
+      : setViewport((prev) => {
+          return {
+            ...prev,
+            latitude: PARIS.lat,
+            longitude: PARIS.lng,
+            zoom: 11,
+          };
+        });
+  }, [selectedFlat]);
 
   const handleResetMap = () => {
     setSelectedFlat(null);
@@ -54,7 +63,7 @@ const Map = ({ flats }) => {
       ref={mapRef}>
       {flats.map((flat) => {
         return (
-          <Marker key={flat.id} latitude={flat.lat} longitude={flat.lng} onClick={() => handleSelectMarker(flat)}>
+          <Marker key={flat.id} latitude={flat.lat} longitude={flat.lng} onClick={() => setSelectedFlat(flat)}>
             <FaMapMarkerAlt color="tomato" size="1.5rem" />
           </Marker>
         );
