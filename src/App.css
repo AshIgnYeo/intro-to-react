@@ -20,6 +20,12 @@ main,
   padding: 24px 0;
 }
 
+.flats-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
 @media screen and (min-width: 1200px) {
   .App {
     padding: 0;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Search.css";
 
-const Search = ({ allFlats, setFilteredFlats }) => {
+const Search = ({ allFlats, setFlats }) => {
   const [value, setValue] = useState("");
 
   const handleChange = (e) => {
@@ -16,11 +16,11 @@ const Search = ({ allFlats, setFilteredFlats }) => {
         return flatName.includes(value.toLowerCase());
       });
 
-      setFilteredFlats(results);
+      setFlats(results);
     } else {
-      setFilteredFlats(null);
+      setFlats(allFlats);
     }
-  }, [value, allFlats, setFilteredFlats]);
+  }, [value, allFlats, setFlats]);
 
   return (
     <div className="search-wrapper">
