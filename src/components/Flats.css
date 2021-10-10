@@ -14,6 +14,11 @@
   color: #fff;
 }
 
+.flat.selected {
+  background-color: #d0553f;
+  border-color: #d0553f;
+}
+
 .flat-name {
   padding: 16px;
 }
@@ -31,7 +36,8 @@
   transition: 300ms;
 }
 
-.flat:hover img {
+.flat:hover img,
+.flat.selected img {
   transform: scale(1);
 }
 

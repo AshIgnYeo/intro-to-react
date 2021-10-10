@@ -20,7 +20,11 @@ function App() {
       <main>
         <div className="contents">
           <Search setFilteredFlats={setFilteredFlats} allFlats={allFlats} />
-          <Flats flats={filteredFlats === null ? allFlats : filteredFlats} setSelectedFlat={setSelectedFlat} />
+          <Flats
+            flats={filteredFlats === null ? allFlats : filteredFlats}
+            setSelectedFlat={setSelectedFlat}
+            selectedFlat={selectedFlat}
+          />
         </div>
       </main>
       <div className="map">
