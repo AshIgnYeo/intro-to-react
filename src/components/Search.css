@@ -4,13 +4,13 @@
 
 input {
   width: 100%;
-  border: 1px solid #eb7e6b;
+  border: 1px solid var(--primary-red);
   border-radius: 8px;
   padding: 8px;
   transition: 200ms;
 }
 
 input:focus {
-  border: 1px solid #989beb;
+  border: 1px solid var(--primary-blue);
   outline: none;
 }

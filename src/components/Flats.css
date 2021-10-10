@@ -5,18 +5,18 @@
 }
 
 .flat {
-  border: 1px solid #eb7e6b;
+  border: 1px solid var(--primary-red);
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
   transition: 300ms;
-  background-color: #eb7e6b;
+  background-color: var(--primary-red);
   color: #fff;
 }
 
 .flat.selected {
-  background-color: #d0553f;
-  border-color: #d0553f;
+  background-color: var(--secondary-red);
+  border-color: var(--secondary-red);
 }
 
 .flat-name {
