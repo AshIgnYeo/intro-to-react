@@ -18,12 +18,12 @@ function App() {
     <div className="App">
       <main>
         <div className="contents">
-          <Search setFilteredFlats={setFilteredFlats} />
-          <Flats flats={filteredFlats.length ? filteredFlats : allFlats} />
+          <Search setFilteredFlats={setFilteredFlats} allFlats={allFlats} />
+          <Flats flats={filteredFlats === null ? allFlats : filteredFlats} />
         </div>
       </main>
       <div className="map">
-        <Map flats={filteredFlats.length ? filteredFlats : allFlats} />
+        <Map flats={filteredFlats === null ? allFlats : filteredFlats} />
       </div>
     </div>
   );
