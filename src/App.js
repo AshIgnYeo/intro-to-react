@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import Flats from "./components/Flats";
+import Map from "./components/Map";
+import Search from "./components/Search";
 
 function App() {
+  const [allFlats, setAllFlats] = useState([]);
+  const [filteredFlats, setFilteredFlats] = useState([]);
+
+  useEffect(() => {
+    fetch("https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/flats.json")
+      .then((res) => res.json())
+      .then((flats) => setAllFlats(flats));
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <main>
+        <div className="contents">
+          <Search setFilteredFlats={setFilteredFlats} />
+          <Flats flats={filteredFlats.length ? filteredFlats : allFlats} />
+        </div>
+      </main>
+      <div className="map">
+        <Map flats={filteredFlats.length ? filteredFlats : allFlats} />
+      </div>
     </div>
   );
 }

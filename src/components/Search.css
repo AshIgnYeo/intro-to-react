@@ -1,0 +1,16 @@
+.search-wrapper {
+  margin-bottom: 32px;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #eb7e6b;
+  border-radius: 8px;
+  padding: 8px;
+  transition: 200ms;
+}
+
+input:focus {
+  border: 1px solid #989beb;
+  outline: none;
+}

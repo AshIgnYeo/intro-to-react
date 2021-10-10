@@ -1,0 +1,39 @@
+.flats-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.flat {
+  border: 1px solid #eb7e6b;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 200ms;
+  background-color: #eb7e6b;
+  color: #fff;
+}
+
+.flat-name {
+  padding: 16px;
+}
+
+.flat-image {
+  overflow: hidden;
+}
+
+.flat-image img {
+  display: block;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  transform: scale(1.1);
+  transition: 300ms;
+}
+
+.flat:hover img {
+  transform: scale(1);
+}
+
+@media screen and (min-width: 1200px) {
+}
