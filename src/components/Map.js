@@ -30,7 +30,7 @@ const Map = ({ flats, selectedFlat, setSelectedFlat }) => {
             ...prev,
             latitude: selectedFlat.lat,
             longitude: selectedFlat.lng,
-            zoom: 13,
+            zoom: 15,
           };
         })
       : setViewport((prev) => {
