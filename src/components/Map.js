@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import ReactMapGl, { Marker, Popup } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useState, useRef } from "react";
-
 import { FaMapMarkerAlt } from "react-icons/fa";
+import "./Map.css";
 
 const PARIS = {
   lat: 48.8566,
@@ -71,7 +71,10 @@ const Map = ({ flats, selectedFlat, setSelectedFlat }) => {
 
       {selectedFlat && (
         <Popup latitude={selectedFlat.lat} longitude={selectedFlat.lng} closeOnClick={true} onClose={handleResetMap}>
-          <h3>{selectedFlat.name}</h3>
+          <div className="popup">
+            <div className="price">€{selectedFlat.price}</div>
+            <div className="name">{selectedFlat.name}</div>
+          </div>
         </Popup>
       )}
     </ReactMapGl>
