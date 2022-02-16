@@ -1,17 +1,14 @@
 import React from "react";
 import "./Flat.css";
 
-const Flat = ({ flat, selectedFlat, setSelectedFlat }) => {
-  const isSelected = selectedFlat ? selectedFlat.id === flat.id : false;
+const Flat = (props) => {
+  /**
+   * Check if flat is the current selected flat
+   */
+  // const isSelected =
 
-  return (
-    <div className={`flat ${isSelected ? "selected" : ""}`} key={flat.id} onClick={() => setSelectedFlat(flat)}>
-      <div className="flat-image">
-        <img src={flat.imageUrl} alt="" />
-      </div>
-      <div className="flat-name">{flat.name}</div>
-    </div>
-  );
+  /* Return statement */
+  return <div>Single flat</div>;
 };
 
 export default Flat;

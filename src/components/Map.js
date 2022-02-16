@@ -54,6 +54,8 @@ const Map = ({ flats, selectedFlat, setSelectedFlat }) => {
       };
     });
   };
+
+  /* Return statement */
   return (
     <ReactMapGl
       {...viewport}
